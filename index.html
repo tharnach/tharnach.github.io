@@ -3,6 +3,8 @@
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
+<!-- latest jQuery -->
+<script src="js/jquery.min.js"></script>
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 <style>
@@ -14,12 +16,12 @@ body {
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-md-3">
-				<p><button type="button" class="btn btn-primary">Projects</button></p>
-				<p><button type="button" class="btn btn-default">Work Experience</button></p>
+			<div class="col-md-3 menu">
+				<p><button id="projects" type="button" class="btn btn-primary">Projects</button></p>
+				<p><button id="work" type="button" class="btn btn-default">Work Experience</button></p>
 			</div>
 			<div class="col-md-9">
-				<div class="row">
+				<div id="project_body" class="row">
 					<div class="col-md-12">
 						<div class="panel panel-primary">
 							<div class="panel-heading">
@@ -42,7 +44,35 @@ body {
 								<h3 class="panel-title">3D-Printed Desk Lamp, powered by Arduino</h3>
 							</div>
 							<div class="panel-body">
-								I've created desk lamps before, but this one is unique. This lamp has a built in technology that allows you to change the light intensity with the wave of a hand.
+								I've created desk lamps before, but this one is unique. This lamp has a built in technology that allows you to change the light intensity with the wave of a hand. I had a lot of fun with this project because it combines design, 3D-printing, and Arduino stuff in one thing. 
+							</div>
+						</div> 
+					</div>
+				</div>
+				<div id="work_body" class="row">
+					<div class="col-md-12">
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title">AutoTrader</h3>
+							</div>
+							<div class="panel-body">
+								QA Analyst
+							</div>
+						</div>
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title">Norfolk Southern</h3>
+							</div>
+							<div class="panel-body">
+								Support Analyst
+							</div>
+						</div>
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h3 class="panel-title">Auburn University</h3>
+							</div>
+							<div class="panel-body">
+								Support Technician
 							</div>
 						</div> 
 					</div>
@@ -50,5 +80,22 @@ body {
 			</div>
 		</div>
 	</div>
+	<script>
+	$('#project_body').show(); //default show projects
+	$('#work_body').hide(); //default hide work
+	
+	$('#projects').on('click',function(){
+		$('#project_body').show();
+		$('#work_body').hide();
+		$(".menu").find('button').removeClass('btn-primary').addClass('btn-default');
+		$(this).addClass('btn-primary');
+	});
+	$('#work').on('click',function(){
+		$('#project_body').hide();
+		$('#work_body').show();
+		$(".menu").find('button').removeClass('btn-primary').addClass('btn-default');
+		$(this).addClass('btn-primary');
+	});
+	</script>
 </body>
 </html>
